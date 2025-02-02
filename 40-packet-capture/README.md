@@ -60,7 +60,7 @@ ping 192.168.1.1 network-instance default
 Windows/WSL:
 
 ```bash
-ssh user@vm<X>.srexperts.net \
+ssh user@vm<X>.wrkshpz.net.net \
 "sudo ip netns exec clab-startup-srl tcpdump -U -nni e1-1 -w -" | \
 /mnt/c/Program\ Files/Wireshark/wireshark.exe -k -i -
 ```
@@ -68,7 +68,7 @@ ssh user@vm<X>.srexperts.net \
 macOS:
 
 ```bash
-ssh user@vm<X>.srexperts.net \
+ssh user@vm<X>.wrkshpz.net.net \
 "sudo ip netns exec clab-startup-srl tcpdump -U -nni e1-1 -w -" | \
 /Applications/Wireshark.app/Contents/MacOS/Wireshark  -k -i -
 ```
@@ -129,7 +129,7 @@ The command above will open two Finder windows, one with the `cshargextcap` bina
 
 To access the Edgeshark UI, open a browser and navigate to the following URL (substitute {ID} with your assigned VM):
 
-<http://vm{ID}.srexperts.net:5001>
+<http://vm{ID}.wrkshpz.net.net:5001>
 
 Note, the http schema is important, since https is not enabled.
 
