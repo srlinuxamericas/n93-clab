@@ -11,8 +11,7 @@ Installs
 all in one, multi-OS installer:
 
 ```bash
-curl -L http://containerlab.dev/setup | \
-sudo bash -s "all"
+curl -sL https://containerlab.dev/setup | sudo -E bash -s "all"
 ```
 
 The automation script adds the `docker` group to your `user`, in order for these changes to take effect, log out from the current session and log back in.
