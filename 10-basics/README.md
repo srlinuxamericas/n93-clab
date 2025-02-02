@@ -7,14 +7,14 @@ This workshop section introduces you to containerlab basics - topology file, ima
 Clone this repository to your workshop VM:
 
 ```bash
-cd ~ && git clone https://github.com/srlinuxamericas/i2-clab.git \
-&& cd i2-clab/10-basics
+cd ~ && git clone https://github.com/srlinuxamericas/n93-clab.git \
+&& cd n93-clab/10-basics
 ```
 
-The repo should be cloned and you should be in the `i2-clab` directory as per the output below:
+The repo should be cloned and you should be in the `n93-clab` directory as per the output below:
 
 ```
-user@2:~/i2-clab/10-basics$ 
+user@2:~/n93-clab/10-basics$ 
 ```
 
 ## Topology
@@ -176,7 +176,7 @@ INFO[0000] Parsing & checking topology file: basic.clab.yml
 If the topology file is located in a different directory, you can specify the path to the topology file:
 
 ```bash
-sudo clab inspect -t ~/i2-clab/10-basics/
+sudo clab inspect -t ~/n93-clab/10-basics/
 INFO[0000] Parsing & checking topology file: basic.clab.yml 
 ╭────────────────┬───────────────────────┬─────────┬───────────────────╮
 │      Name      │       Kind/Image      │  State  │   IPv4/6 Address  │
