@@ -5,15 +5,15 @@ When pulling together what we have learned so far, we can build a lab that embod
 For this workshop, we will augment our [vm lab](../20-vm) with gnmic, prometheus and grafana. Let's go ahead and deploy the lab.
 
 ```bash
-cd ~/i2-clab/45-streaming-telemetry
-sudo clab dep -t st_i2_45.clab.yaml
+cd ~/n93-clab/45-streaming-telemetry
+sudo clab dep -t st_n93_45.clab.yaml
 ```
 
 This will pull down the repository and deploy the lab right away.
 
 ## Exploring the topology file
 
-The streaming telemetry lab' [topology file](https://github.com/srlinuxamericas/i2-clab/blob/main/45-streaming-telemetry/st_i2_45.clab.yaml) is worth a closer look. It features:
+The streaming telemetry lab' [topology file](https://github.com/srlinuxamericas/n93-clab/blob/main/45-streaming-telemetry/st_n93_45.clab.yaml) is worth a closer look. It features:
 
 - customization of the management network
 - use of `defaults` and `kinds` sections to simplify the topology file
