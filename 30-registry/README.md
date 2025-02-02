@@ -16,9 +16,9 @@ The registry has been already deployed in the workshop environment, but it is qu
 
 The Harbor registry offers a neat Web UI to browse the registry contents, manage users and tune access control. You can log in to the registry UI like this:
 
-<[https://registry-i2.srexperts.net](https://registry-i2.srexperts.net/)>
+<[https://registry-n93.srexperts.net](https://registry-n93.srexperts.net/)>
 
-using the `user` user and the password `i2ClabW$`.
+using the `user` user and the password `n93ClabW$`.
 
 Managing the harbor registry is out of the scope of this workshop.
 
@@ -31,12 +31,12 @@ Managing the harbor registry is out of the scope of this workshop.
 To be able to push and pull the images from the workshop's registry, you need to login to the registry from your VM.
 
 ```bash
-docker login registry-i2.srexperts.net
+docker login registry-n93.srexperts.net
 ```
 
 ```
 # username: user
-# password: i2ClabW$
+# password: n93ClabW$
 ```
 
 ### 2 Listing local images
@@ -72,19 +72,19 @@ Now that we know the name of the image that we want to push to the registry, we 
 We will use `docker push` to upload the image to the registry. Before this, let's tag the image with the name of the registry and a tag.
 
 ```bash
-docker tag vrnetlab/nokia_sros:24.7.R1 registry-i2.srexperts.net/library/nokia_sros:24.7.R1
+docker tag vrnetlab/nokia_sros:24.7.R1 registry-n93.srexperts.net/library/nokia_sros:24.7.R1
 ```
 
 Now we can push the image to the registry.
 
 ```bash
-docker push registry-i2.srexperts.net/library/nokia_sros:24.7.R1
+docker push registry-n93.srexperts.net/library/nokia_sros:24.7.R1
 ```
 
 Expected output - Note: The user `user` does not have permission to push to the registry and will receive a `permission denied` error.
 
 ```bash
-The push refers to repository [registry-i2.srexperts.net/library/nokia_sros]
+The push refers to repository [registry-n93.srexperts.net/library/nokia_sros]
 30fe1646bed3: Preparing 
 a1004ec9baf5: Preparing 
 0a58c259d433: Preparing 
@@ -95,7 +95,7 @@ unauthorized: unauthorized to access repository: library/nokia_sros, action: pus
 The below output is for a user with permission to push.
 
 ```bash
-The push refers to repository [registry-i2.srexperts.net/library/nokia_sros]
+The push refers to repository [registry-n93.srexperts.net/library/nokia_sros]
 626d14695d27: Pushed 
 da133bfdd77f: Pushed 
 2e873d5d18ac: Pushed 
@@ -125,7 +125,7 @@ user@1:~$ docker images
 REPOSITORY                                            TAG       IMAGE ID       CREATED          SIZE
 xrd                                                   7.8.1     1bfb061eca9e   49 minutes ago   1.18GB
 vrnetlab/nokia_sros                                   24.7.R1   553e94475c12   38 hours ago     889MB
-registry-i2.srexperts.net/library/nokia_sros          24.7.R1   553e94475c12   38 hours ago     889MB
+registry-n93.srexperts.net/library/nokia_sros          24.7.R1   553e94475c12   38 hours ago     889MB
 ghcr.io/nokia/srlinux                                 latest    eb2a823cd8ce   4 weeks ago      2.35GB
 ```
 
@@ -155,7 +155,7 @@ topology:
   kinds:
     nokia_sros:
 -     image: vrnetlab/nokia_sros:24.7.R1
-+     image: registry-i2.srexperts.net/library/nokia_sros:24.7.R1
++     image: registry-n93.srexperts.net/library/nokia_sros:24.7.R1
       type: sr-1
       license: /home/user/images/sros-24.lic
     linux:
@@ -165,7 +165,7 @@ topology:
 Deploy the lab using:
 
 ```bash
-cd ~/i2-clab/20-vm
+cd ~/n93-clab/20-vm
 sudo clab dep -t vm.clab.yml
 ```
 
@@ -175,8 +175,8 @@ Expected output (showing docker pulling image from registry):
 INFO[0000] Containerlab v0.60.1 started                 
 INFO[0000] Parsing & checking topology file: vm.clab.yml 
 INFO[0000] Creating docker network: Name="clab", IPv4Subnet="172.20.20.0/24", IPv6Subnet="3fff:172:20:20::/64", MTU=1500 
-INFO[0000] Pulling registry-i2.srexperts.net/library/nokia_sros:24.7.R1 Docker image 
-INFO[0006] Done pulling registry-i2.srexperts.net/library/nokia_sros:24.7.R1
+INFO[0000] Pulling registry-n93.srexperts.net/library/nokia_sros:24.7.R1 Docker image 
+INFO[0006] Done pulling registry-n93.srexperts.net/library/nokia_sros:24.7.R1
 <snip>
 ```
 
