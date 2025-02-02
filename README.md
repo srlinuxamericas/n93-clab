@@ -1,6 +1,6 @@
-# Containerlab Workshop at Internet2 TECHEX
+# Containerlab Workshop at NANOG 93
 
-Welcome to the Containerlab workshop at Internet2 TECHEX.
+Welcome to the Containerlab workshop at NANOG 93.
 
 Below is a list of workshop modules. Each module is a self-contained guide that can be followed independently, but it is recommended to go through them in order if you are new to Containerlab.
 
