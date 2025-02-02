@@ -43,7 +43,7 @@ The end goal of this topology is establish connectivity between the 2 clients.
 First, let's switch back to the lab directory:
 
 ```bash
-cd ~/i2-clab/20-vm
+cd ~/n93-clab/20-vm
 ```
 
 Now lets deploy the lab:
@@ -76,7 +76,7 @@ At the end of the deployment, the following table will be displayed. Wait for th
 │         │ vr-sros:24.7.R1                                           │         │ 3fff:172:20:20::5 │
 ├─────────┼───────────────────────────────────────────────────────────┼─────────┼───────────────────┤
 │ p4-xrd  │ cisco_xrd                                                 │ running │ 172.20.20.3       │
-│         │ registry-i2.srexperts.net/library/xrd-control-plane:7.8.1 │         │ 3fff:172:20:20::3 │
+│         │ registry-n93.srexperts.net/library/xrd-control-plane:7.8.1 │         │ 3fff:172:20:20::3 │
 ├─────────┼───────────────────────────────────────────────────────────┼─────────┼───────────────────┤
 │ pe1-sr1 │ nokia_sros                                                │ running │ 172.20.20.7       │
 │         │ vr-sros:24.7.R1                                           │         │ 3fff:172:20:20::7 │
