@@ -1,0 +1,59 @@
+set / interface ethernet-1/1 admin-state enable
+set / interface ethernet-1/1 subinterface 0 ipv4 admin-state enable
+set / interface ethernet-1/1 subinterface 0 ipv4 address 10.0.0.12/31
+set / interface ethernet-1/2 admin-state enable
+set / interface ethernet-1/2 subinterface 0 ipv4 admin-state enable
+set / interface ethernet-1/2 subinterface 0 ipv4 address 10.0.0.14/31
+set / interface ethernet-1/10 admin-state enable
+set / interface ethernet-1/10 subinterface 0 type bridged
+set / interface system0 admin-state enable
+set / interface system0 subinterface 0 ipv4 admin-state enable
+set / interface system0 subinterface 0 ipv4 address 2.2.2.2/32
+set / system mpls label-ranges static srgb-range-1 shared true
+set / system mpls label-ranges static srgb-range-1 start-label 18000
+set / system mpls label-ranges static srgb-range-1 end-label 21000
+set / system mpls label-ranges dynamic d1 start-label 25000
+set / system mpls label-ranges dynamic d1 end-label 25999
+set / system mpls label-ranges dynamic d2 start-label 26000
+set / system mpls label-ranges dynamic d2 end-label 26999
+set / system mpls label-ranges dynamic d3 start-label 27000
+set / system mpls label-ranges dynamic d3 end-label 27999
+set / system mpls label-ranges dynamic srlb-dynamic-1 start-label 28000
+set / system mpls label-ranges dynamic srlb-dynamic-1 end-label 28999
+set / system mpls services evpn dynamic-label-block d2
+set / system mpls services network-instance dynamic-label-block d1
+set / system mpls services network-instance dynamic-evpn-inclusive-multicast-label-block d3
+set / network-instance default type default
+set / network-instance default interface ethernet-1/1.0
+set / network-instance default interface ethernet-1/2.0
+set / network-instance default interface system0.0
+set / network-instance default protocols bgp admin-state enable
+set / network-instance default protocols bgp autonomous-system 65500
+set / network-instance default protocols bgp router-id 2.2.2.2
+set / network-instance default protocols bgp afi-safi evpn admin-state enable
+set / network-instance default protocols bgp group evpn peer-as 65500
+set / network-instance default protocols bgp neighbor 1.1.1.1 peer-group evpn
+set / network-instance default protocols bgp neighbor 1.1.1.1 multihop admin-state enable
+set / network-instance default protocols bgp neighbor 1.1.1.1 multihop maximum-hops 6
+set / network-instance default protocols bgp neighbor 1.1.1.1 transport local-address 2.2.2.2
+set / network-instance default protocols isis dynamic-label-block srlb-dynamic-1
+set / network-instance default protocols isis instance 1 admin-state enable
+set / network-instance default protocols isis instance 1 net [ 49.0000.0020.0200.2002.00 ]
+set / network-instance default protocols isis instance 1 segment-routing mpls dynamic-adjacency-sids all-interfaces true
+set / network-instance default protocols isis instance 1 interface ethernet-1/1.0 circuit-type point-to-point
+set / network-instance default protocols isis instance 1 interface ethernet-1/2.0 circuit-type point-to-point
+set / network-instance default protocols isis instance 1 interface system0.0 circuit-type point-to-point
+set / network-instance default segment-routing mpls global-block label-range srgb-range-1
+set / network-instance default segment-routing mpls local-prefix-sid 2 interface system0.0
+set / network-instance default segment-routing mpls local-prefix-sid 2 ipv4-label-index 2
+set / network-instance store1 admin-state enable
+set / network-instance store1 type mac-vrf
+set / network-instance store1 interface ethernet-1/10.0
+set / network-instance store1 protocols bgp-evpn bgp-instance 1 admin-state enable
+set / network-instance store1 protocols bgp-evpn bgp-instance 1 encapsulation-type mpls
+set / network-instance store1 protocols bgp-evpn bgp-instance 1 evi 25
+set / network-instance store1 protocols bgp-evpn bgp-instance 1 mpls next-hop-resolution allowed-tunnel-types [ sr-isis ]
+set / network-instance store1 protocols bgp-evpn bgp-instance 1 mpls next-hop-resolution selection-attributes tag mandatory false
+set / network-instance store1 protocols bgp-vpn bgp-instance 1 route-distinguisher rd 2.2.2.2:25
+set / network-instance store1 protocols bgp-vpn bgp-instance 1 route-target export-rt target:65500:25
+set / network-instance store1 protocols bgp-vpn bgp-instance 1 route-target import-rt target:65500:25

@@ -1,0 +1,457 @@
+# TiMOS-B-24.3.R1 both/x86_64 Nokia 7750 SR Copyright (c) 2000-2024 Nokia.
+# All rights reserved. All use subject to applicable license agreements.
+# Built on Thu Mar 14 20:27:01 UTC 2024 by builder in /builds/243B/R1/panos/main/sros
+# Configuration format version 24.3 revision 0
+
+# Generated 2024-11-28T22:53:53.5Z by admin from 200::
+# Commit ID 9
+#   Committed 2024-11-28T22:32:14.5Z by admin (MD-CLI) from 200::
+
+configure {
+    card 1 {
+        card-type iom-1
+        mda 1 {
+            mda-type me12-100gb-qsfp28
+        }
+    }
+    log {
+        filter "1001" {
+            named-entry "10" {
+                description "Collect only events of major severity or higher"
+                action forward
+                match {
+                    severity {
+                        gte major
+                    }
+                }
+            }
+        }
+        log-id "99" {
+            description "Default System Log"
+            source {
+                main true
+            }
+            destination {
+                memory {
+                    max-entries 500
+                }
+            }
+        }
+        log-id "100" {
+            description "Default Serious Errors Log"
+            filter "1001"
+            source {
+                main true
+            }
+            destination {
+                memory {
+                    max-entries 500
+                }
+            }
+        }
+    }
+    port 1/1/c1 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c1/1 {
+        admin-state enable
+    }
+    port 1/1/c3 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c3/1 {
+        admin-state enable
+    }
+    port 1/1/c4 {
+        admin-state enable
+        connector {
+            breakout c1-100g
+        }
+    }
+    port 1/1/c4/1 {
+        admin-state enable
+    }
+    router "Base" {
+        interface "To-P2" {
+            port 1/1/c4/1
+            ipv4 {
+                primary {
+                    address 10.0.0.4
+                    prefix-length 31
+                }
+            }
+        }
+        interface "To-P3" {
+            port 1/1/c3/1
+            ipv4 {
+                primary {
+                    address 10.0.0.6
+                    prefix-length 31
+                }
+            }
+        }
+        interface "To-PE1" {
+            port 1/1/c1/1
+            ipv4 {
+                primary {
+                    address 10.0.0.1
+                    prefix-length 31
+                }
+            }
+        }
+        interface "system" {
+            ipv4 {
+                primary {
+                    address 11.11.11.11
+                    prefix-length 32
+                }
+            }
+        }
+        mpls-labels {
+            static-label-range 17968
+            sr-labels {
+                start 18000
+                end 21000
+            }
+        }
+        isis 0 {
+            admin-state enable
+            advertise-router-capability as
+            traffic-engineering true
+            area-address [49.0000]
+            segment-routing {
+                admin-state enable
+                prefix-sid-range {
+                    global
+                }
+            }
+            interface "To-P2" {
+                interface-type point-to-point
+            }
+            interface "To-P3" {
+                interface-type point-to-point
+            }
+            interface "To-PE1" {
+                interface-type point-to-point
+            }
+            interface "system" {
+                interface-type point-to-point
+                ipv4-node-sid {
+                    index 201
+                }
+            }
+        }
+        mpls {
+            admin-state enable
+            interface "To-P2" {
+            }
+            interface "To-P3" {
+            }
+            interface "To-PE1" {
+            }
+        }
+        rsvp {
+            admin-state enable
+            interface "To-P2" {
+            }
+            interface "To-P3" {
+            }
+            interface "To-PE1" {
+            }
+        }
+    }
+    system {
+        name "p1-sr1"
+        grpc {
+            admin-state enable
+            allow-unsecure-connection
+            gnmi {
+                auto-config-save true
+            }
+            rib-api {
+                admin-state enable
+            }
+        }
+        management-interface {
+            configuration-save {
+                configuration-backups 5
+                incremental-saves false
+            }
+            netconf {
+                auto-config-save true
+                listen {
+                    admin-state enable
+                }
+            }
+            snmp {
+                packet-size 9216
+                streaming {
+                    admin-state enable
+                }
+            }
+        }
+        bluetooth {
+            advertising-timeout 30
+        }
+        login-control {
+            ssh {
+                inbound-max-sessions 30
+            }
+        }
+        security {
+            aaa {
+                local-profiles {
+                    profile "administrative" {
+                        default-action permit-all
+                        entry 10 {
+                            match "configure system security"
+                            action permit
+                        }
+                        entry 20 {
+                            match "show system security"
+                            action permit
+                        }
+                        entry 30 {
+                            match "tools perform security"
+                            action permit
+                        }
+                        entry 40 {
+                            match "tools dump security"
+                            action permit
+                        }
+                        entry 50 {
+                            match "admin system security"
+                            action permit
+                        }
+                        entry 100 {
+                            match "configure li"
+                            action deny
+                        }
+                        entry 110 {
+                            match "show li"
+                            action deny
+                        }
+                        entry 111 {
+                            match "clear li"
+                            action deny
+                        }
+                        entry 112 {
+                            match "tools dump li"
+                            action deny
+                        }
+                        netconf {
+                            base-op-authorization {
+                                action true
+                                cancel-commit true
+                                close-session true
+                                commit true
+                                copy-config true
+                                create-subscription true
+                                delete-config true
+                                discard-changes true
+                                edit-config true
+                                get true
+                                get-config true
+                                get-data true
+                                get-schema true
+                                kill-session true
+                                lock true
+                                validate true
+                            }
+                        }
+                    }
+                    profile "default" {
+                        entry 10 {
+                            match "exec"
+                            action permit
+                        }
+                        entry 20 {
+                            match "exit"
+                            action permit
+                        }
+                        entry 30 {
+                            match "help"
+                            action permit
+                        }
+                        entry 40 {
+                            match "logout"
+                            action permit
+                        }
+                        entry 50 {
+                            match "password"
+                            action permit
+                        }
+                        entry 60 {
+                            match "show config"
+                            action deny
+                        }
+                        entry 65 {
+                            match "show li"
+                            action deny
+                        }
+                        entry 66 {
+                            match "clear li"
+                            action deny
+                        }
+                        entry 67 {
+                            match "tools dump li"
+                            action deny
+                        }
+                        entry 68 {
+                            match "state li"
+                            action deny
+                        }
+                        entry 70 {
+                            match "show"
+                            action permit
+                        }
+                        entry 75 {
+                            match "state"
+                            action permit
+                        }
+                        entry 80 {
+                            match "enable-admin"
+                            action permit
+                        }
+                        entry 90 {
+                            match "enable"
+                            action permit
+                        }
+                        entry 100 {
+                            match "configure li"
+                            action deny
+                        }
+                    }
+                }
+            }
+            snmp {
+                community "76HzdddhlPpRo1Vql+ZB5spLqccgYQ== hash2" {
+                    access-permissions r
+                    version v2c
+                }
+            }
+            ssh {
+                server-cipher-list-v2 {
+                    cipher 190 {
+                        name aes256-ctr
+                    }
+                    cipher 192 {
+                        name aes192-ctr
+                    }
+                    cipher 194 {
+                        name aes128-ctr
+                    }
+                    cipher 200 {
+                        name aes128-cbc
+                    }
+                    cipher 205 {
+                        name 3des-cbc
+                    }
+                    cipher 225 {
+                        name aes192-cbc
+                    }
+                    cipher 230 {
+                        name aes256-cbc
+                    }
+                }
+                client-cipher-list-v2 {
+                    cipher 190 {
+                        name aes256-ctr
+                    }
+                    cipher 192 {
+                        name aes192-ctr
+                    }
+                    cipher 194 {
+                        name aes128-ctr
+                    }
+                    cipher 200 {
+                        name aes128-cbc
+                    }
+                    cipher 205 {
+                        name 3des-cbc
+                    }
+                    cipher 225 {
+                        name aes192-cbc
+                    }
+                    cipher 230 {
+                        name aes256-cbc
+                    }
+                }
+                server-mac-list-v2 {
+                    mac 200 {
+                        name hmac-sha2-512
+                    }
+                    mac 210 {
+                        name hmac-sha2-256
+                    }
+                    mac 215 {
+                        name hmac-sha1
+                    }
+                    mac 220 {
+                        name hmac-sha1-96
+                    }
+                    mac 225 {
+                        name hmac-md5
+                    }
+                    mac 240 {
+                        name hmac-md5-96
+                    }
+                }
+                client-mac-list-v2 {
+                    mac 200 {
+                        name hmac-sha2-512
+                    }
+                    mac 210 {
+                        name hmac-sha2-256
+                    }
+                    mac 215 {
+                        name hmac-sha1
+                    }
+                    mac 220 {
+                        name hmac-sha1-96
+                    }
+                    mac 225 {
+                        name hmac-md5
+                    }
+                    mac 240 {
+                        name hmac-md5-96
+                    }
+                }
+            }
+            user-params {
+                local-user {
+                    user "admin" {
+                        password "$2y$10$TQrZlpBDra86.qoexZUzQeBXDY1FcdDhGWdD9lLxMuFyPVSm0OGy6"
+                        restricted-to-home false
+                        access {
+                            console true
+                            ftp true
+                            netconf true
+                            grpc true
+                        }
+                        console {
+                            member ["administrative"]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+persistent-indices {
+    description "Persistent indices are maintained by the system and must not be modified."
+    vrtr-if-id {
+        router-name "Base" interface-name "To-P2" vrtr-id 1 if-index 4
+        router-name "Base" interface-name "To-P3" vrtr-id 1 if-index 2
+        router-name "Base" interface-name "To-PE1" vrtr-id 1 if-index 3
+    }
+}
+
+# Finished 2024-11-28T22:53:53.5Z

@@ -1,0 +1,51 @@
+name: vm
+ 
+prefix: ""
+topology:
+  defaults:
+    kind: nokia_sros
+  kinds:
+    nokia_sros:
+      image: vrnetlab/nokia_sros:24.7.R1
+      type: sr-1
+      license: /home/user/images/sros-24.lic
+    linux:
+      image: ghcr.io/srl-labs/network-multitool
+  nodes:
+    pe1-sr1:
+      startup-config: startup/pe1-sr1-startup-config.txt
+    pe2-srL:
+      kind: nokia_srlinux
+      image: ghcr.io/nokia/srlinux:24.10.1
+      type: ixrx1b
+      license: /home/user/images/srl-24.10.lic
+      startup-config: startup/pe2-srL-startup-config.txt
+    p1-sr1:
+      startup-config: startup/p1-sr1-startup-config.txt
+    p2-sr1:
+      startup-config: startup/p2-sr1-startup-config.txt
+    p3-sr1:
+      startup-config: startup/p3-sr1-startup-config.txt
+    p4-xrd:
+      kind: cisco_xrd
+      image: xrd:7.8.1
+      startup-config: startup/p4-xrd-startup-config.txt
+    client1:
+      kind: linux
+      exec:
+        - ip address add 172.16.10.50/24 dev eth1
+    client2:
+      kind: linux
+      exec:
+        - ip address add 172.16.10.60/24 dev eth1
+  links:
+    - endpoints: ["pe1-sr1:eth1", "p1-sr1:eth1"]
+    - endpoints: ["pe1-sr1:eth2", "p2-sr1:eth2"]
+    - endpoints: ["p1-sr1:eth4", "p2-sr1:eth4"]
+    - endpoints: ["p1-sr1:eth3", "p3-sr1:eth3"]
+    - endpoints: ["p2-sr1:eth3", "p4-xrd:Gi0-0-0-3"]
+    - endpoints: ["p3-sr1:eth4", "p4-xrd:Gi0-0-0-4"]
+    - endpoints: ["pe2-srL:e1-1", "p3-sr1:eth1"]
+    - endpoints: ["pe2-srL:e1-2", "p4-xrd:Gi0-0-0-2"]
+    - endpoints: ["client1:eth1","pe1-sr1:eth10"]
+    - endpoints: ["client2:eth1","pe2-srL:e1-10"]

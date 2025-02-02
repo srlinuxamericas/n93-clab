@@ -1,0 +1,4650 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 2,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "series",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 10,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "rate(gnmic_srl_if_stats_in_octets[$__interval])",
+          "legendFormat": "{{source}}:{{interface_name}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "rate(gnmic_srl_if_stats_out_octets[$__rate_interval])",
+          "hide": false,
+          "legendFormat": "{{source}}:{{interface_name}}",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "builder",
+          "expr": "rate(gnmic_sros_if_stats_in_octets[$__rate_interval])",
+          "hide": false,
+          "legendFormat": "{{source}}::{{port_port_id}}",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "rate(gnmic_sros_if_stats_out_octets[$__rate_interval])",
+          "hide": false,
+          "legendFormat": "{{source}}::{{port_port_id}}",
+          "range": true,
+          "refId": "D"
+        }
+      ],
+      "title": "Network Traffic Throughput",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "mode": "columns",
+            "valueLabel": "source"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "flowchartsData": {
+        "allowDrawio": true,
+        "editorTheme": "kennedy",
+        "editorUrl": "https://embed.diagrams.net/",
+        "flowcharts": [
+          {
+            "center": true,
+            "csv": "",
+            "download": false,
+            "enableAnim": true,
+            "grid": false,
+            "lock": true,
+            "name": "Main",
+            "scale": true,
+            "tooltip": true,
+            "type": "xml",
+            "url": "http://<YourUrl>/<Your XML/drawio file/api>",
+            "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n    <mxGraphModel dx=\"794\" dy=\"580\" grid=\"0\" gridSize=\"10\" guides=\"1\" tooltips=\"1\" connect=\"1\" arrows=\"1\" fold=\"1\" page=\"1\" pageScale=\"1\" pageWidth=\"827\" pageHeight=\"1169\" background=\"#575757\" math=\"0\" shadow=\"1\">\n      <root>\n        <mxCell id=\"0\" />\n        <mxCell id=\"1\" parent=\"0\" />\n        <mxCell id=\"33\" value=\"\" style=\"shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/png,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;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"55\" y=\"267\" width=\"47\" height=\"51\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"35\" value=\"\" style=\"shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/png,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;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"183\" y=\"261\" width=\"60\" height=\"63\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"41\" value=\"\" style=\"shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/png,iVBORw0KGgoAAAANSUhEUgAAADwAAAA/CAYAAAC8aKvcAAAAAXNSR0IArs4c6QAAAIRlWElmTU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAABIAAAAAQAAAEgAAAABAAOgAQADAAAAAQABAACgAgAEAAAAAQAAADygAwAEAAAAAQAAAD8AAAAAP0X+jwAAAAlwSFlzAAALEwAACxMBAJqcGAAADD5JREFUaAXlWwl4TdcW/jNoIkIEbU1FRLW09GmoqrGtJvhUkU46PKU8lKeoqVSk1aaeKIlZtCjRmou0RLXUWDXWlKemGhqzGCMRbtJ/7Ztzkzufe3OTTz/Ld51h773W/vdee+211j7xyiHhHiLvewirgupblICzqUw52fzxn5cI9vKCt7e38b6IOlKogM+dT8PWnfuxd/9hHDuRivMX0pCZmQVDdjaxesHX1wclAwNQucIDqPlwVTSoVxv1//UofHx8Cg2+RwFn3spC6tkLmL8wGXMXrMQfBw4DfIf7igHF+PPhCiJQM+KM484dIOs2kG1AsbLBaNnsKXR/pz2ea9YAgSUCOACeW3lenjBa12/cxNQvF+FbAt138CgMNzMJkmPp68Z4ygDcFvDZKHd/GTRtEoZuXSLR5oVnzMbJ3YcCAc66fQcJM5dg8Ih4ZFy/ART319cPbWOwnG1brQkcHNAGzepj5uRoPPZoiFoOtqrqeec24IXfrUHUqKlGtS3uB1ofPfLABYzQkEow8Hr85Gmquc71KkuDdTtFhmNMTH+17vUJNK/lMuDbnNUu732MeV8vBReYOTc9T5ev0YCtw6W0KzRS7YHgID2t8urIeqdmrJgfh7atmrg82zqnxShvb8oRhDV+HfPmLAPNa14nXLljZzMzb0EMnFskdoHa1C6yD/p/OA53DAaX2OgGvIcWt3GLt7HvyEmgRHFAW4cuicutTENtYatd4yJr398P8ZMT0SayL428ftC6ACet3oiwRp1ww91ZcQ2O/trc6tas2oDnX+yJa9fTdbVzCvjAwWN49Y2BMPiyql4Do0u0hypR2zb8uhsvvtZP10w7BHzo2Ck0bP4WMmmo7mrimt7w81b06BfjtJt2Ad+i+r725kCkZxEsXcC7njjTM+n8xIyb5bCrdgGPiJmG33f/v4DWxaFszxcSdMzoBBw+etIub5uAk9duRSwBI0Cn52SXfREXcOdIz7iFdrQ59sgKsKjy0I/iuM+64VTYk1KU7xmoHNyxH19MnmdTqhXg1ZzdPXsOsnKBdkqbworkpfgHQYGYNGkert+w3qqsAPcZ9L+7c/txcbSOM/5emrTOqpUZ4MRFyTiVcszzVlkiHmdUEM/NFu9ivhgUNcGqxATYQJ90xqwlSh2sahXkBfmGhlZBSf/7VIxrxYpRUxnai5CqFVUkZVXu7gs6SReOnMDipLVmHEyAL1y6gv17/qBj7sG1S7AVmb45snMpVi+fCpUOyMk/29lcbgHYtGYWUrYtRsmSAbYHxazLLjwwwJk9L4luP9d1LpkAb9t1AGlXrzMo0Io8cOUonz6eipEx09GoQR2sXzNTpXqkA5LQ8y9RAr+um4NaNathSFQ8rl+6qj+u1tM9qvW+nSm4fIW4csmUg1m0dE3BIiCNo+WVe/kn3NMF4KjhPZGUNA2+3j4oxVh6zU+zFdi+Q2IxkVYVAUwkeHLAKTP1YhrOnLuIMsGlVM9MgFev+815DkqMj97MRn7gfvfhU+7tOVTnTz96z1QiM9170BhM+YIzL4kAPrtEUl+aOFiGhlu3sXnrHqaGqivWSqXPnL2ICyrdYtJwc7nCmA5Jj64vg5G7eZmeJ2lfJgifjZ6BKPHgcqnf0LGYMuUb98AyoKlVMwTt27YwZkbt5cdokn7ZuEMTabQj+xkCqjSpLedKRpDMf1g+BW1aPqPizm8Tl+tP2GmiBLRfMap1HG6R3xXai4T4ucZdQcpcpGL0qDYlf4kgOhlNIi5g6+bfmRTgTmBJtCO799IY55Ka0kPibNtSVenIndtYtjBegY2dMAcLuFfrzk5qUrSr4OJMj4n9CgkJC4HSJbUSl6+SW2v07L+5Pi9hY/JXiOz4glH7LGea6n4y9ZyJvwJ8mslzq+BeOkf9T+Z28lKbZpjBPNbgQbHIdrBeTFwd3cggSmJefm7MrIk1Q9ZD9KaeDX8XGTzNmP/1aDRiDpsPpirqhgNwky5meu57ZbSuXaPPaZHdZ3eweMkERDz3NJKSN2I81a/h00+45WILrn2HjyODkYzVyQP36pp0TIJLSVJQRtk1yqJt6dpzJL5O+ESp+Kudh2DJ8p/zDLDMOHNekjgsIXlzOXnoMeBzbop1cxDcwPjzqZWzaPnPUuQxqtOkUw5KheXJ0GShRs66TTs9JoeHAzk1n+xgLsuvTs75i2lKhpphP1Gv/KPL85wR0RNRv14tVHuoAn5kBLX8+19QnF6RO2pISUg9zWVjazkUD8DEhAVY+eMmnq64PsNyMOfr5Y2ood3Vwdyk6QvwJ1XdTGNpn7QDOgW4dBCNB31aE1G9Dx77C01avoODu5YhnGodN/VbrFpBVQlgitYdEtWyNCjCh+nWpSvWusNRtfEl4E1r5yiwo2gMo4aNM4/lZT3R4wrwNyYzlNGqXPFB4wlefrGcjdS/zqF2WAeO2GmsXBSPyFdaG/c8segaAL1XjbfUl5NC+WkDoJdH/noEInq5dEEcGoY9hi8mzkUUnRsvZQs0YbyyXkluXf65W5YC/MjDVWyrKj2kU2cvoWl4V7X/Lk6MRWvZ6C0tYT7+Tm/TrmLokO7o2fN14Mo1p9XtVfChGu/aMh8vtmqKaDo0AweOUQcEsnzMiBpQvQojsVxSKv14rVDj3iqVtVHXaqiZPotaYR0xafww7Nx+wLilaOV6r8I3KwsjPx+A6KH/Ua38qWpxExKNDoNlR53wNdA/mMwsZWhIZXzMwMOLIaYVWOHBpSq2SCPTYVq1uu1wgpGN3ZQsO+TDn0FTK42Dnqu04eHZiM/645NhPU0tZC76Dh6LSWO/ontJ595F0IxI4EPWqk8mrhY33LYSZ4/Gm6+0UgVKpeWubXgTtnRwRsNOG7S1a8HT6SOFjvz8AwU2adVGHOL51C7mzdZt2IGJYwbi/cHdjLbBKSOLCtQ+h2BZ3Y9HubLGNTIBfrn987bdS62mu1eu92hGSKLGm3/bg3Yv9cIdrivxfFpHdIUc0sWN/gD933+brqGFl+SuTK0dJ6nyg+VwP78k0MgE+PHaoShfLth6DWs13blKxqNqJYzkHrmFYJvR+MnnDKLh3vwvKzMDjZ/rrECPGv4eAiVE5GB4jKhZDRo/iaB8KWdltERAWQoLe6oufli1Ps8tK6hkyXicOY/Qeh1wniFotiCldc0jb6SzU80juiGodCBupGd4VsvSb6JH5w554nhnki6fEfXtxa2C31N4lAj62J+neNRKP9pWRMZ3V29mMKI5b7vc3c7wS4FHOIEtOMP5yQRYXoa3aIiw5k8ZnYL8tQp6bwuoJU+ZfU+SIQfxMQOsOJoBltJJsYPM/VCrJv+MF3Vok5o+U8+qs1aA6/NruGeb1ne8RVmxuYteiKZcvorhTBgG2PiMygqwL9fcxLFDPK/WRTUmjHtbRUbgtfYtbUq0Aiy1JMM3bWp0wXxmm+IK+SUn9wHuu7Ol73bIJmCp++5bLyE8ouk/S7W5w8SNHYwH8zkalrjtApYvXSVPFFqtkntun6WkwnyWdcutbXTsYHTqGO5Qkl3A0iqYiYFt6xNRgWpyVxOdl85dOmJQH7qnTsghYGlbpnQpJH8/DeV5VZ8CO2FYpMUys/SmunWNxMwp0fRr+OyEnAKW9nVr10DK7u8QUq2yZ31dJ51zWCzYCPb9AV0wPW648s0d1s8t1AVY6ir13piIthEMIymoQMRA2CIvoZ+dzCrdxgBun9Omfow4hp16ZlYToBuwNChXpjSWfTMO4zmiYiTcimwY5PszcefP9JFbRLkPVS6v0js9uG5dJVPGw9WGv+87hGH8pGAV06sq3lOpXh1cGP6FVKmgvpc+ySShWTrVUXMCLcvtpnevNxD9YQ+rTJSjpvnL3AYsTOTMdxv/iKP7fz/F/u37+P0089Z6AgUtlSPq6YzktJL636fPW4gZ2RuBlKGjlV2uBQKcn+v3/OJ21pwV2PLrLpxl7KsWqfzdA9eabpKBkE+BeVDmzdTMYzWqok3b5ujFY9qqPBDwBHkMsHRGTgFu0NvZvisFc+f/gJU/bcHFk2eMIOR7Tfnx9N80RZLdkB8Bqiu/Cniibk36wS/gFZ4GVqxwv80AoCDAPQrYVkdOnDqLvSmHcejoKTXzl3kuLF/7yR9oBfJziLJlS6MKjVDtR6pDQjr5O6bCpEIHXJidd4e3S9uSOwLutjb3HOC/AZSNBaBumUKQAAAAAElFTkSuQmCC;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"314\" y=\"164\" width=\"60\" height=\"63\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"42\" value=\"\" style=\"shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/png,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;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"314\" y=\"351\" width=\"60\" height=\"63\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"43\" value=\"\" style=\"shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/png,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;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"471\" y=\"164\" width=\"60\" height=\"63\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"44\" value=\"\" style=\"shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/png,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;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"471\" y=\"351\" width=\"60\" height=\"63\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"46\" value=\"\" style=\"shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/png,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;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"608\" y=\"255\" width=\"60\" height=\"63\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"48\" value=\"\" style=\"shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/png,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;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"749\" y=\"261\" width=\"47\" height=\"51\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"49\" value=\"\" style=\"endArrow=circle;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;strokeColor=#565656;endFill=0;\" parent=\"1\" source=\"48\" target=\"46\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"120\" y=\"303\" as=\"sourcePoint\" />\n            <mxPoint x=\"672\" y=\"287\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"55\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endFill=1;\" parent=\"1\" source=\"46\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"326\" y=\"214\" as=\"sourcePoint\" />\n            <mxPoint x=\"565\" y=\"238\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"61\" value=\"&lt;font style=&quot;font-size: 17px;&quot; color=&quot;#ffffff&quot;&gt;P1&lt;/font&gt;\" style=\"text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"314\" y=\"134\" width=\"60\" height=\"30\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"63\" value=\"&lt;font style=&quot;font-size: 17px;&quot; color=&quot;#ffffff&quot;&gt;P3&lt;/font&gt;\" style=\"text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"471\" y=\"134\" width=\"60\" height=\"30\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"64\" value=\"&lt;font style=&quot;font-size: 17px;&quot; color=&quot;#ffffff&quot;&gt;P2&lt;/font&gt;&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; text-wrap-mode: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22%26lt%3Bfont%20style%3D%26quot%3Bfont-size%3A%2017px%3B%26quot%3B%20color%3D%26quot%3B%23ffffff%26quot%3B%26gt%3BP1%26lt%3B%2Ffont%26gt%3B%22%20style%3D%22text%3BstrokeColor%3Dnone%3Balign%3Dcenter%3BfillColor%3Dnone%3Bhtml%3D1%3BverticalAlign%3Dmiddle%3BwhiteSpace%3Dwrap%3Brounded%3D0%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22314%22%20y%3D%22134%22%20width%3D%2260%22%20height%3D%2230%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;\" style=\"text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"312\" y=\"418.5\" width=\"60\" height=\"30\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"65\" value=\"&lt;font color=&quot;#ffffff&quot;&gt;&lt;span style=&quot;font-size: 17px;&quot;&gt;P4&lt;/span&gt;&lt;/font&gt;\" style=\"text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"471\" y=\"414\" width=\"60\" height=\"30\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"66\" value=\"&lt;font color=&quot;#ffffff&quot;&gt;&lt;span style=&quot;font-size: 17px;&quot;&gt;PE2&lt;/span&gt;&lt;/font&gt;\" style=\"text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"608\" y=\"225\" width=\"60\" height=\"30\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"67\" value=\"&lt;font color=&quot;#ffffff&quot;&gt;&lt;span style=&quot;font-size: 17px;&quot;&gt;PE1&lt;/span&gt;&lt;/font&gt;\" style=\"text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"183\" y=\"231\" width=\"60\" height=\"30\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"68\" value=\"&lt;font color=&quot;#ffffff&quot;&gt;&lt;span style=&quot;font-size: 17px;&quot;&gt;Client1&lt;/span&gt;&lt;/font&gt;\" style=\"text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"48.5\" y=\"321\" width=\"60\" height=\"30\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"69\" value=\"&lt;font color=&quot;#ffffff&quot;&gt;&lt;span style=&quot;font-size: 17px;&quot;&gt;Client2&lt;/span&gt;&lt;/font&gt;\" style=\"text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"742.5\" y=\"318\" width=\"60\" height=\"30\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"77\" value=\"\" style=\"ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=11;fillColor=#C7C7C7;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"63\" y=\"409\" width=\"13\" height=\"13\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"80\" value=\"\" style=\"ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=11;fillColor=#00994D;strokeColor=none;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"63\" y=\"428\" width=\"13\" height=\"13\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"81\" value=\"\" style=\"ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=11;fillColor=#FF9933;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"63\" y=\"447\" width=\"13\" height=\"13\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"82\" value=\"\" style=\"ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=11;fillColor=#FF0000;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"63\" y=\"466\" width=\"13\" height=\"13\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"83\" value=\"&lt;font style=&quot;font-size: 9px;&quot; color=&quot;#ffffff&quot;&gt;0 - 0.5 Mbps&lt;/font&gt;\" style=\"text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"86\" y=\"400.5\" width=\"60\" height=\"30\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"84\" value=\"&lt;font style=&quot;font-size: 9px;&quot; color=&quot;#ffffff&quot;&gt;0.5 - 2 Mbps&lt;/font&gt;\" style=\"text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"84\" y=\"419.5\" width=\"60\" height=\"30\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"85\" value=\"&lt;font style=&quot;font-size: 9px;&quot; color=&quot;#ffffff&quot;&gt;2 - 5 Mbps&lt;/font&gt;\" style=\"text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"84\" y=\"438.5\" width=\"60\" height=\"30\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"86\" value=\"&lt;font style=&quot;font-size: 9px;&quot; color=&quot;#ffffff&quot;&gt;5+ Mbps&lt;/font&gt;\" style=\"text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"1\" vertex=\"1\">\n          <mxGeometry x=\"84\" y=\"459\" width=\"60\" height=\"30\" as=\"geometry\" />\n        </mxCell>\n        <mxCell id=\"87\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endFill=1;\" parent=\"1\" source=\"43\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"640\" y=\"174\" as=\"sourcePoint\" />\n            <mxPoint x=\"566\" y=\"240\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"88\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;\" parent=\"1\" source=\"46\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"592\" y=\"372\" as=\"sourcePoint\" />\n            <mxPoint x=\"570\" y=\"332\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"89\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;endFill=1;exitX=0.883;exitY=0.587;exitDx=0;exitDy=0;exitPerimeter=0;\" parent=\"1\" source=\"44\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"594\" y=\"440\" as=\"sourcePoint\" />\n            <mxPoint x=\"574\" y=\"329\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"90\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;\" parent=\"1\" source=\"41\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"248\" y=\"95\" as=\"sourcePoint\" />\n            <mxPoint x=\"278\" y=\"243\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"91\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;endFill=1;exitX=1.017;exitY=0.397;exitDx=0;exitDy=0;exitPerimeter=0;\" parent=\"1\" source=\"35\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"233\" y=\"231\" as=\"sourcePoint\" />\n            <mxPoint x=\"280\" y=\"242\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"92\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;\" parent=\"1\" source=\"35\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"304\" y=\"340\" as=\"sourcePoint\" />\n            <mxPoint x=\"277\" y=\"341\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"93\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;\" parent=\"1\" source=\"42\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"220\" y=\"441\" as=\"sourcePoint\" />\n            <mxPoint x=\"275\" y=\"336\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"94\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;\" parent=\"1\" source=\"44\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"427\" y=\"449.5\" as=\"sourcePoint\" />\n            <mxPoint x=\"418\" y=\"383\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"95\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;\" parent=\"1\" source=\"42\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"343\" y=\"550.5\" as=\"sourcePoint\" />\n            <mxPoint x=\"420\" y=\"383\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"96\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;\" parent=\"1\" source=\"41\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"481\" y=\"393\" as=\"sourcePoint\" />\n            <mxPoint x=\"421\" y=\"196\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"97\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;\" parent=\"1\" source=\"43\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"491\" y=\"403\" as=\"sourcePoint\" />\n            <mxPoint x=\"418\" y=\"196\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"98\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;\" parent=\"1\" source=\"48\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"501\" y=\"413\" as=\"sourcePoint\" />\n            <mxPoint x=\"704\" y=\"287\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"99\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;\" parent=\"1\" source=\"46\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"697\" y=\"368\" as=\"sourcePoint\" />\n            <mxPoint x=\"706\" y=\"287\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"100\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;\" parent=\"1\" source=\"33\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"521\" y=\"433\" as=\"sourcePoint\" />\n            <mxPoint x=\"144\" y=\"293\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"101\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;\" parent=\"1\" source=\"35\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"531\" y=\"443\" as=\"sourcePoint\" />\n            <mxPoint x=\"137\" y=\"293\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"102\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;\" parent=\"1\" source=\"44\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"458\" y=\"321\" as=\"sourcePoint\" />\n            <mxPoint x=\"501\" y=\"286\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"103\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;\" parent=\"1\" source=\"43\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"511\" y=\"361\" as=\"sourcePoint\" />\n            <mxPoint x=\"501\" y=\"290\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"104\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;\" parent=\"1\" source=\"42\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"337\" y=\"350\" as=\"sourcePoint\" />\n            <mxPoint x=\"343\" y=\"291\" as=\"targetPoint\" />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\"105\" value=\"\" style=\"endArrow=classicThin;html=1;rounded=0;strokeColor=#B3B3B3;endSize=6;shadow=0;strokeWidth=2;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;\" parent=\"1\" source=\"41\" edge=\"1\">\n          <mxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\">\n            <mxPoint x=\"341\" y=\"220\" as=\"sourcePoint\" />\n            <mxPoint x=\"343\" y=\"293\" as=\"targetPoint\" />\n            <Array as=\"points\">\n              <mxPoint x=\"343\" y=\"258\" />\n            </Array>\n          </mxGeometry>\n        </mxCell>\n      </root>\n    </mxGraphModel>",
+            "zoom": "100%"
+          }
+        ]
+      },
+      "format": "short",
+      "graphId": "flowchart_7",
+      "gridPos": {
+        "h": 12,
+        "w": 14,
+        "x": 10,
+        "y": 0
+      },
+      "id": 7,
+      "rulesData": {
+        "rulesData": [
+          {
+            "aggregation": "current",
+            "alias": "pe1_1/1_in",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "90",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 1,
+            "overlayIcon": false,
+            "pattern": "pe1-sr1:57400:1/1/c1/1:in",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "pe1_1/1_out",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "91",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 2,
+            "overlayIcon": false,
+            "pattern": "pe1-sr1:57400:1/1/c1/1:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "pe1_1/10_in",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "100",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 3,
+            "overlayIcon": false,
+            "pattern": "pe1-sr1:57400:1/1/c10/1:in",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "pe1_1/10_out",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "101",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 4,
+            "overlayIcon": false,
+            "pattern": "pe1-sr1:57400:1/1/c10/1:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "pe1_2/2_in",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "93",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 5,
+            "overlayIcon": false,
+            "pattern": "pe1-sr1:57400:1/1/c2/1:in",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "pe1_2/2_out",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "92",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 6,
+            "overlayIcon": false,
+            "pattern": "pe1-sr1:57400:1/1/c2/1:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "pe2_10/1_out",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "99",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "value",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 7,
+            "overlayIcon": false,
+            "pattern": "pe2-srl:57400:ethernet-1/10:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "pe2_10/1_in",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "98",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 8,
+            "overlayIcon": false,
+            "pattern": "pe2-srl:57400:ethernet-1/10:in",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "pe2_1/1_in",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "87",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 9,
+            "overlayIcon": false,
+            "pattern": "pe2-srl:57400:ethernet-1/1:in",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "pe2_2/1_out",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "88",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 10,
+            "overlayIcon": false,
+            "pattern": "pe2-srl:57400:ethernet-1/2:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "pe2_1/1_out",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "55",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 11,
+            "overlayIcon": false,
+            "pattern": "pe2-srl:57400:ethernet-1/1:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "p3_1/1_in",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "55",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 12,
+            "overlayIcon": false,
+            "pattern": "p3-sr1:57400:1/1/c1/1:in",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "p3_4/1_out",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "103",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 13,
+            "overlayIcon": false,
+            "pattern": "p3-sr1:57400:1/1/c4/1:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "p3_3/1_in",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "96",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 14,
+            "overlayIcon": false,
+            "pattern": "p3-sr1:57400:1/1/c3/1:in",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "p3_3/1_out",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "97",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 15,
+            "overlayIcon": false,
+            "pattern": "p3-sr1:57400:1/1/c3/1:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "p1_4/1_in",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "104",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 16,
+            "overlayIcon": false,
+            "pattern": "p1-sr1:57400:1/1/c4/1:in",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": " p1_4/1_out",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "105",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 50000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 2000000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 17,
+            "overlayIcon": false,
+            "pattern": "p1-sr1:57400:1/1/c4/1:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "p1_1/1_out",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "90",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 18,
+            "overlayIcon": false,
+            "pattern": "p1-sr1:57400:1/1/c1/1:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "p1_1/1_in",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "91",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 19,
+            "overlayIcon": false,
+            "pattern": "p1-sr1:57400:1/1/c1/1:in",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "p1_3/1_in",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "97",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 20,
+            "overlayIcon": false,
+            "pattern": "p1-sr1:57400:1/1/c3/1:in",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "p1_3/1_out",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "96",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 21,
+            "overlayIcon": false,
+            "pattern": "p1-sr1:57400:1/1/c3/1:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "p2_3/1_out",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "95",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 22,
+            "overlayIcon": false,
+            "pattern": "p2-sr1:57400:1/1/c3/1:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "p2_4/1_out",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "104",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 23,
+            "overlayIcon": false,
+            "pattern": "p2-sr1:57400:1/1/c4/1:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "p2_4/1_in",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "105",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 24,
+            "overlayIcon": false,
+            "pattern": "p2-sr1:57400:1/1/c4/1:in",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "p2_2/1_in",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "92",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 25,
+            "overlayIcon": false,
+            "pattern": "p2-sr1:57400:1/1/c2/1:in",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "p2_2/1_out",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "93",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 26,
+            "overlayIcon": false,
+            "pattern": "p2-sr1:57400:1/1/c2/1:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "p3_1/1_out",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 1,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "87",
+                    "style": "strokeColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": false,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "#ccccdb8f",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "#73BF69",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000
+              },
+              {
+                "color": "#FF9830",
+                "comparator": "ge",
+                "level": 0,
+                "value": 500000
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 5000000
+              }
+            ],
+            "order": 27,
+            "overlayIcon": false,
+            "pattern": "p3-sr1:57400:1/1/c3/1:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          }
+        ]
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "rate(gnmic_srl_if_traffic_rate_out_bps[$__interval])",
+          "legendFormat": "{{source}}:{{interface_name}}:out",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "builder",
+          "expr": "rate(gnmic_srl_if_traffic_rate_in_bps[$__rate_interval])",
+          "hide": false,
+          "legendFormat": "{{source}}:{{interface_name}}:in",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "rate(gnmic_sros_if_stats_in_octets[$__rate_interval])",
+          "hide": false,
+          "legendFormat": "{{source}}:{{port_port_id}}:in",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "rate(gnmic_sros_if_stats_out_octets[$__rate_interval])",
+          "hide": false,
+          "legendFormat": "{{source}}:{{port_port_id}}:out",
+          "range": true,
+          "refId": "D"
+        }
+      ],
+      "title": "Network Topology",
+      "type": "agenty-flowcharting-panel",
+      "valueName": "current",
+      "version": "1.0.0d"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "#62595a",
+                  "index": 0,
+                  "text": "Down"
+                },
+                "1": {
+                  "color": "semi-dark-green",
+                  "index": 1,
+                  "text": "Up"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#766c6d",
+                "value": null
+              },
+              {
+                "color": "semi-dark-green",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 10,
+        "x": 0,
+        "y": 6
+      },
+      "id": 3,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "builder",
+          "expr": "gnmic_srl_if_oper_state_oper_state",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "SR Linux Port Status",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "keepLabels": [
+              "interface_name"
+            ],
+            "valueLabel": "interface_name"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bps"
+        },
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "1/1/c2/1"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 13,
+        "x": 0,
+        "y": 12
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "rate(gnmic_sros_if_stats_in_octets{source=\"$Node\"}[$__rate_interval])",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "rate(gnmic_sros_if_stats_out_octets{source=\"$Node\"}[$__rate_interval])",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "$Node Interfaces Traffic",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "valueLabel": "port_port_id"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 11,
+        "x": 13,
+        "y": 12
+      },
+      "id": 5,
+      "options": {
+        "displayMode": "gradient",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "valueMode": "color"
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "builder",
+          "expr": "gnmic_sros_mem_in_use",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "builder",
+          "expr": "gnmic_srl_mem_utilization",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Nokia SROS Memory Utilization",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "valueLabel": "source"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 0,
+        "y": 20
+      },
+      "id": 9,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "builder",
+          "expr": "gnmic_sros_cpu_cpu_usage{source=\"$Node\"}",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "$Node CPU Utilization",
+      "transformations": [],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 4,
+        "y": 20
+      },
+      "id": 10,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "builder",
+          "expr": "gnmic_sros_mem_in_use{source=\"$Node\"}",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "$Node Memory Used",
+      "transformations": [],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 16,
+        "x": 8,
+        "y": 20
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "builder",
+          "expr": "gnmic_sros_cpu_cpu_usage",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "builder",
+          "expr": "gnmic_srl_cpu_instant",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "CPU Utilization",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "pe1-sr1:57400"
+          ],
+          "value": [
+            "pe1-sr1:57400"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "definition": "label_values(source)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "",
+        "multi": false,
+        "name": "Node",
+        "options": [],
+        "query": {
+          "query": "label_values(source)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Internet-2 Tech-24 Draft2",
+  "uid": "e0776c4f-5a0b-4b23-baea-14975729df2d",
+  "version": 9,
+  "weekStart": ""
+}
