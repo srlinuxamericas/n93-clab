@@ -16,7 +16,7 @@ The registry has been already deployed in the workshop environment, but it is qu
 
 The Harbor registry offers a neat Web UI to browse the registry contents, manage users and tune access control. You can log in to the registry UI like this:
 
-<[https://registry-n93.srexperts.net](https://registry-n93.srexperts.net/)>
+<[https://registry.wrkshpz.net](https://registry.wrkshpz.net/)>
 
 using the `user` user and the password `n93ClabW$`.
 
