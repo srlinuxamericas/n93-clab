@@ -28,7 +28,7 @@ topology:
       startup-config: startup/p3-sr1-startup-config.txt
     p4-xrd:
       kind: cisco_xrd
-      image: registry-i2.srexperts.net/library/xrd-control-plane:7.8.1
+      image: xrd:7.8.1
       startup-config: startup/p4-xrd-startup-config.txt
     client1:
       kind: linux
