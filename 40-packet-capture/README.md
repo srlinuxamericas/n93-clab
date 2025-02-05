@@ -129,7 +129,7 @@ The command above will open two Finder windows, one with the `cshargextcap` bina
 
 To access the Edgeshark UI, open a browser and navigate to the following URL (substitute {ID} with your assigned VM):
 
-<http://vm{ID}.wrkshpz.net:5001>
+<http://{ID}.wrkshpz.net:5001>
 
 Note, the http schema is important, since https is not enabled.
 
