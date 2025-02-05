@@ -6,7 +6,7 @@ topology:
     kind: nokia_sros
   kinds:
     nokia_sros:
-      image: registry-n93.srexperts.net/library/nokia_sros:24.7.R1
+      image: registry.wrkshpz.net/library/nokia_sros:24.7.R1
       type: sr-1
       license: /home/user/images/sros-24.lic
     linux:
