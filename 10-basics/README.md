@@ -136,11 +136,15 @@ Connect to the Nokia SR Linux node using the container name:
 ssh clab-basic-srl
 ```
 
+To logout of SR Linux node, use `CTRL+d` or type `quit`.
+
 Connect to Cisco XRd node using its hostname or IP address. Refer to the card for password.
 
 ```bash
 ssh clab@clab-basic-xrd
 ```
+
+To logout of XRd node, use `exit`.
 
 ## Containerlab hosts automation
 
