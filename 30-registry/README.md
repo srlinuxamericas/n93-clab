@@ -129,10 +129,10 @@ registry.wrkshpz.net/library/nokia_sros          24.7.R1   553e94475c12   38 hou
 ghcr.io/nokia/srlinux                                 latest    eb2a823cd8ce   4 weeks ago      2.35GB
 ```
 
-Destroy all running labs (or any labs using sros image):
+Destroy the previous VM lab:
 
 ```bash
-sudo clab des -a
+cd ~/n93-clab/20-vm && sudo clab des
 ```
 
 Delete the sros docker image (replace with the correct Image ID in your VM):
@@ -182,5 +182,10 @@ INFO[0006] Done pulling registry.wrkshpz.net/library/nokia_sros:24.7.R1
 
 After the lab is deployed, check ping between client1 and client2 similar to what was done for the previous [VM lab](../20-vm/README.md)
 
+Destroy the lab using:
+
+```bash
+cd ~/n93-clab/20-vm && sudo clab des
+```
 
 Not only this gives us an easy way to share images with others, but also it enables stronger reproducibility of the lab, as the users of our lab would use exactly the same image that we built.
