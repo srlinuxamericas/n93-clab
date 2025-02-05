@@ -102,6 +102,8 @@ To connect to SR OS node:
 ssh admin@pe1-sr1
 ```
 
+To logout of SR OS node, use `logout`.
+
 To connect to SR Linux node:
 
 ```bash
