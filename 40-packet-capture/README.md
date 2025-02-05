@@ -60,7 +60,7 @@ ping 192.168.1.1 network-instance default
 Windows/WSL:
 
 ```bash
-ssh user@<X>.wrkshpz.net \
+ssh nanoguser@<X>.wrkshpz.net \
 "sudo ip netns exec clab-startup-srl tcpdump -U -nni e1-1 -w -" | \
 /mnt/c/Program\ Files/Wireshark/wireshark.exe -k -i -
 ```
@@ -68,7 +68,7 @@ ssh user@<X>.wrkshpz.net \
 macOS:
 
 ```bash
-ssh user@<X>.wrkshpz.net \
+ssh nanoguser@<X>.wrkshpz.net \
 "sudo ip netns exec clab-startup-srl tcpdump -U -nni e1-1 -w -" | \
 /Applications/Wireshark.app/Contents/MacOS/Wireshark  -k -i -
 ```
