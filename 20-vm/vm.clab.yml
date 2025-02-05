@@ -8,7 +8,7 @@ topology:
     nokia_sros:
       image: vrnetlab/nokia_sros:24.7.R1
       type: sr-1
-      license: /home/user/images/sros-24.lic
+      license: /home/nanoguser/images/sros-24.lic
     linux:
       image: ghcr.io/srl-labs/network-multitool
   nodes:
@@ -18,7 +18,7 @@ topology:
       kind: nokia_srlinux
       image: ghcr.io/nokia/srlinux:24.10.1
       type: ixrx1b
-      license: /home/user/images/srl-24.10.lic
+      license: /home/nanoguser/images/srl-24.10.lic
       startup-config: startup/pe2-srL-startup-config.txt
     p1-sr1:
       startup-config: startup/p1-sr1-startup-config.txt
