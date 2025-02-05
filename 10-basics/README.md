@@ -66,7 +66,7 @@ Check what images are available on the system:
 docker images
 ```
 
-Pull SR Linux container image available for free:
+If SR Linux image is not present, pull SR Linux container image available for free:
 
 ```bash
 docker pull ghcr.io/nokia/srlinux
@@ -75,7 +75,7 @@ docker pull ghcr.io/nokia/srlinux
 Import Cisco XRd image localled stored on your VM and pay attention to the 2nd argument for the `docker import` command where you have to specify the image:
 
 ```bash
-docker load -i ~/images/xrd-7.8.1.tar.xz
+docker load -i ~/images/xrd-7.8.1.tar.gz
 ```
 
 Expected output:
